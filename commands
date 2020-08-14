@@ -1,0 +1,9 @@
+cat "{}" > /dev/null
+cmp "{}" /dev/zero
+rust/zerochecker/target/release/zerochecker "{}"
+#rust/zerocheck_steve/target/release/zerocheck_steve "{}"
+haskell/zerochecker "{}"
+python python/zerochecker_numpy.py "{}"
+python python/zerochecker.py "{}"
+cpp/zerochecker "{}"
+cpp/zerochecker_vec "{}"
