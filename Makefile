@@ -1,5 +1,5 @@
 FILENAME?=$$HOME/tmp/zero
-REPEATS = 1
+REPEATS?=20
 
 bench: results.csv
 
@@ -24,4 +24,7 @@ csharp:
 haskell:
 	$(MAKE) -C haskell
 
-.PHONY: bench cpp swift csharp haskell targets
+rust:
+	$(MAKE) -C rust
+
+.PHONY: bench cpp swift csharp haskell targets rust

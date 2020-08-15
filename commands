@@ -1,6 +1,6 @@
 cat "{}" > /dev/null
 cmp "{}" /dev/zero
-rust/zerochecker/target/release/zerochecker "{}"
+rust/zerocheck "{}"
 #rust/zerocheck_steve/target/release/zerocheck_steve "{}"
 haskell/zerochecker "{}"
 python python/zerochecker_numpy.py "{}"
@@ -8,4 +8,4 @@ python python/zerochecker.py "{}"
 cpp/zerochecker "{}"
 cpp/zerochecker_vec "{}"
 swift/zerochecker "{}"
-#dotnet csharp/zerochecker.dll "{}"
+dotnet csharp/zerochecker.dll "{}"
