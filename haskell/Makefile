@@ -4,6 +4,6 @@ ${TARGETS}: zerochecker.hs
 	ghc -O3 $<
 
 clean:
-	rm ${TARGETS}
+	-rm ${TARGETS}
 
 .PHONY: clean

@@ -14,7 +14,7 @@ You may assume that the file is small enough to fit in memory.
 
 If you don't want to install all of compilers used in this benchmark, the included Dockerfile containerizes them for you.
 
-Build the image in the normal way:
+Build the image in the normal way. This will take awhile, you are downloading a tonne of compilers:
 
 ```bash
 docker build -t zerocheck .
@@ -34,7 +34,7 @@ Open a new terminal window to run a shell on the container, so you can build and
 docker exec -it zerocheck /bin/bash
 cd zerocheck
 make builds
-make bench
+make FILENAME=./tmp/zero bench
 ```
 
 You can now open the Jupyter notebook and plot the results:
