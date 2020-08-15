@@ -1,16 +1,16 @@
-filename := $$HOME/tmp/zero
-REPEATS = 1
+filename = $$HOME/tmp/zero
+REPEATS = 10
 
 bench: results.csv
 
 $(filename):
-	dd if=/dev/zero of=$(filename) bs=10m count=300
+	dd if=/dev/zero of=$(filename) bs=100k count=300k
 
 results.csv: $(filename) targets
 	python bench.py commands $(filename) --repeats $(REPEATS) --output results.csv
 	notify "Bench complete"
 
-targets: cpp swift rust csharp
+targets: cpp swift rust csharp haskell
 
 cpp: 
 	$(MAKE) -C cpp
@@ -21,4 +21,7 @@ swift:
 csharp:
 	$(MAKE) -C csharp
 
-.PHONY: bench cpp swift csharp targets
+haskell:
+    $(MAKE) -C haskell
+
+.PHONY: bench cpp swift csharp haskell targets
