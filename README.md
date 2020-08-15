@@ -10,3 +10,18 @@ If you'd like to play along, write a program in your favourite language that doe
 
 You may assume that the file is small enough to fit in memory.
 
+## Docker
+
+If you don't want to install all of compilers used in this benchmark, the included Dockerfile containerizes them for you.
+
+Build the image in the normal way:
+
+```bash
+docker build -t zerobench .
+```
+
+After building the image, you can create a container:
+
+```bash
+docker run -v ${PWD}:/mnt/src -w /mnt/src --name zerobench zerobench
+```
