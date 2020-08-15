@@ -1,4 +1,4 @@
-filename = ~/tmp/zero
+filename = ./tmp/zero
 results = results.csv
 REPEATS = 10
 
