@@ -1,7 +1,9 @@
-zerochecker: zerochecker.hs
+TARGETS = zerochecker zerochecker.hi zerochecker.o
+
+${TARGETS}: zerochecker.hs
 	ghc -O3 $<
 
 clean:
-	-rm zerochecker
+	-rm ${TARGETS}
 
 .PHONY: clean
