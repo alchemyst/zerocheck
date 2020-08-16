@@ -37,7 +37,7 @@ $(FILENAME):
 	dd if=/dev/zero of=$(FILENAME) bs=100k count=20k
 
 $(RESULTS): $(FILENAME)
-	python bench.py commands $(FILENAME) --repeats $(REPEATS) --output $(RESULTS)
+	python bench.py commands $(FILENAME) --repeats $(REPEATS) --output $(RESULTS) --verbose
 
 rust: ${rust_binary}
 
