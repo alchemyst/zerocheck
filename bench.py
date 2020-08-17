@@ -25,11 +25,14 @@ def verbose(string):
 
 counts = defaultdict(int)
 
+dfs = []
+
 if args.output and args.output.is_file():
     verbose("Found previous results - reading")
     previous_df = pd.read_csv(args.output)
     previous_counts = previous_df.groupby("command")["time"].count()
     counts.update(zip(previous_counts.index, previous_counts.values))
+    dfs = [previous_df]
 
 commands = [line.strip() for line in open(args.commands) if line.strip() and not line.startswith('#')]
 
@@ -55,6 +58,7 @@ for index in tqdm(order):
 
 if args.output:
     new_df = pd.DataFrame({'command': [commands[i] for i in order], 'time': results})
-    combined = pd.concat([previous_df, new_df])
+    dfs.append(new_df)
+    combined = pd.concat(dfs)
     combined.to_csv(args.output, index=False)
 

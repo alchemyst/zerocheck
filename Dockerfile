@@ -25,7 +25,12 @@ RUN wget https://swift.org/builds/swift-5.2.5-release/ubuntu2004/swift-5.2.5-REL
 RUN wget https://swift.org/builds/swift-5.2.5-release/ubuntu2004/swift-5.2.5-RELEASE/swift-5.2.5-RELEASE-ubuntu20.04.tar.gz.sig
 RUN gpg --verify swift-5.2.5-RELEASE-ubuntu20.04.tar.gz.sig
 RUN tar xzf swift-5.2.5-RELEASE-ubuntu20.04.tar.gz
+
 # Python & Jupyter
 RUN pip install pandas tqdm matplotlib
+
+# julia
+USER root
+RUN apt-get install -y julia
 
 ENV PATH /usr/lib/go-1.15/bin:$HOME/swift-5.2.5-RELEASE-ubuntu20.04/usr/bin:$PATH

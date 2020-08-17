@@ -4,6 +4,6 @@ ${TARGET}: zerochecker.go
 	go build $<
 
 clean:
-	rm ${TARGET}
+	-rm ${TARGET}
 
 .PHONY: clean
